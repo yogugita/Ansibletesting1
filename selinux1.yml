@@ -1,0 +1,11 @@
+---
+- name: Chane SE linux enforcin value
+  hosts: all
+  become: true
+  tasks:
+    - name: Changing SE linux value
+      ansible.builtin.lineinfile:
+        path: /etc/selinux/semanage.conf
+        regexp: ^expand-check=
+        line: expand-check=0
+
